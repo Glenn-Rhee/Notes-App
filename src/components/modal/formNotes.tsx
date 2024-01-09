@@ -25,6 +25,8 @@ export default function FormNotes(props: ModalNotes) {
   const [success, setSuccess] = useState<string>("");
 
   async function handleSubmit(e: any) {
+    setErrorMsg("");
+    setSuccess("");
     e.preventDefault();
     if (title === "" || notes === "") {
       setErrorMsg("Please fill in all the fields");
