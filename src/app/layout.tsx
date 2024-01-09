@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import { Providers } from "./provider";
 import NavbarComponent from "@/components/navbar/Navbar";
+import { ChakraProvider } from "@chakra-ui/react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,9 +19,10 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-[#1E1E1E] overflow-x-hidden">
         <Providers>
-          <NavbarComponent />
-          {children}
-          
+          <ChakraProvider>
+            <NavbarComponent />
+            {children}
+          </ChakraProvider>
         </Providers>
       </body>
     </html>

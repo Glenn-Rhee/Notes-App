@@ -11,10 +11,7 @@ import {
 } from "@nextui-org/react";
 import ViewNotes from "../modal/ViewNotes";
 import { firestore } from "@/lib/firebase/controller";
-import {
-  doc,
-  getDoc,
-} from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
 export default function CardNotes(props: NotesUser) {
@@ -39,11 +36,11 @@ export default function CardNotes(props: NotesUser) {
 
   return (
     <>
-      <Card className="max-w-[400px] mt-8">
+      <Card className="max-w-[400px] w-[300px] mt-8 flex-shrink-0 min-h-[300px]">
         <CardHeader className="flex gap-3">
           <div className="flex flex-col">
             <p
-              className="text-md cursor-pointer"
+              className="text-md cursor-pointer text-ellipsis overflow-hidden inline-block whitespace-nowrap"
               onClick={(e: any) => {
                 e.stopPropagation();
                 onOpen();
@@ -56,7 +53,9 @@ export default function CardNotes(props: NotesUser) {
         </CardHeader>
         <Divider />
         <CardBody>
-          <p>{notes}</p>
+          <p className="text-ellipsis overflow-hidden inline-block whitespace-nowrap">
+            {notes}
+          </p>
         </CardBody>
         <Divider />
         <CardFooter>
@@ -70,7 +69,7 @@ export default function CardNotes(props: NotesUser) {
           </div>
         </CardFooter>
       </Card>
-      <ViewNotes isOpen={isOpen} onOpenChange={onOpenChange} data={note}/>
+      <ViewNotes isOpen={isOpen} onOpenChange={onOpenChange} data={note} />
     </>
   );
 }

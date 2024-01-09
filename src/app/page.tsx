@@ -10,16 +10,18 @@ export default async function Home() {
   return (
     <main className="w-full px-8 py-10">
       <SearchNotes />
-      <div className="grid grid-cols-2 grid-flow-dense justify-center md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
-        {data.map((note) => (
-          <CardNotes
-            key={note.id}
-            date={note.date}
-            title={note.title}
-            notes={note.notes}
-            id={note.id}
-          />
-        ))}
+      <div className="flex justify-center">
+        <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+          {data.map((note) => (
+            <CardNotes
+              key={note.id}
+              date={note.date}
+              title={note.title}
+              notes={note.notes}
+              id={note.id}
+            />
+          ))}
+        </div>
       </div>
     </main>
   );

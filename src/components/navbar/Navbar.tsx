@@ -22,16 +22,6 @@ import FormNotes from "../modal/formNotes";
 
 export default function NavbarComponent() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const today = new Date();
-
-  const options: Intl.DateTimeFormatOptions = {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  };
-
-  const formattedDate = today.toLocaleDateString("id-ID", options);
 
   return (
     <>

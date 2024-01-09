@@ -11,5 +11,16 @@ export const userNotesCollections = collection(firestore, "user-notes");
 export async function addNewNote(data: NotesUser) {
   try {
     const newNote = await addDoc(userNotesCollections, { ...data });
-  } catch (error) {}
+    return {
+      status: "success",
+      message: "Berhasil menambahkan data baru",
+      data: newNote,
+    };
+  } catch (error) {
+    return {
+      status: "failed",
+      message: "Internal server error",
+      data: null,
+    };
+  }
 }

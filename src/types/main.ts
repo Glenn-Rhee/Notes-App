@@ -10,3 +10,7 @@ export interface ModalNotes {
   onOpenChange: () => void;
   data?: NotesUser;
 }
+
+export interface FeedbackProps {
+  message: string;
+}

@@ -1,5 +1,6 @@
 import { getDocs } from "firebase/firestore";
 import { userNotesCollections } from "../firebase/controller";
+import { NotesUser } from "@/types/main";
 
 export async function getNotesUser() {
   try {
@@ -17,7 +18,7 @@ export async function getNotesUser() {
   } catch (error) {
     return {
       status: "failed",
-      message: error || "Gagal Mendapatkan data",
+      message: error || "Internal server error!",
       data: [],
     };
   }
