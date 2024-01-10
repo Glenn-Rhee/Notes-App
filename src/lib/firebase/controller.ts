@@ -1,4 +1,10 @@
-import { addDoc, collection, getFirestore } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getFirestore,
+} from "firebase/firestore";
 import { app } from "./init";
 import { NotesUser } from "@/types/main";
 
@@ -21,6 +27,23 @@ export async function addNewNote(data: NotesUser) {
       status: "failed",
       message: "Internal server error",
       data: null,
+    };
+  }
+}
+
+// Delete document
+export async function deleteData(id: string) {
+  try {
+    const document = doc(firestore, `user-notes/${id}`);
+    await deleteDoc(document);
+    return {
+      status: "success",
+      message: "Berhasil menghapus satu data",
+    };
+  } catch (error: any) {
+    return {
+      status: "failed",
+      message: error.message || error || "Internal server Error!",
     };
   }
 }
