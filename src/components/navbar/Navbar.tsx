@@ -19,6 +19,7 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import FormNotes from "../modal/formNotes";
+import Link from "next/link";
 
 export default function NavbarComponent() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -31,9 +32,11 @@ export default function NavbarComponent() {
         maxWidth="full"
       >
         <NavbarBrand>
-          <p className="font-bold text-3xl text-inherit text-white">
-            Note&apos;s App
-          </p>
+          <Link href={"/"}>
+            <p className="font-bold text-3xl text-inherit text-white">
+              Note&apos;s App
+            </p>
+          </Link>
         </NavbarBrand>
         <NavbarContent as="div" justify="end">
           <Dropdown placement="bottom-end">

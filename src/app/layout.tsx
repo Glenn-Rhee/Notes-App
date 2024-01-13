@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/navbar/Navbar";
 import { Providers } from "./provider";
 import NavbarComponent from "@/components/navbar/Navbar";
 import { ChakraProvider } from "@chakra-ui/react";
@@ -17,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[#1E1E1E] overflow-x-hidden">
+      <body className="bg-[#1E1E1E] w-full h-full overflow-x-hidden">
         <Providers>
           <ChakraProvider>
             <NavbarComponent />

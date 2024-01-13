@@ -1,10 +1,10 @@
 import Container from "@/components/card/Container";
 import CardNotes from "@/components/home/CardNotes";
-import { getNotesUser } from "@/lib/fetch/user";
+import { getArchiveNotes } from "@/lib/fetch/user";
 import { NotesUser } from "@/types/main";
 
-export default async function Home() {
-  const response = await getNotesUser();
+export default async function Archive() {
+  const response = await getArchiveNotes();
   const data: NotesUser[] = response.data;
 
   return (
@@ -12,7 +12,7 @@ export default async function Home() {
       <Container justify={data.length < 3 ? "justify-start" : "justify-center"}>
         {data.map((note) => (
           <CardNotes
-            typeBtn="Archive"
+            typeBtn="Unarchive"
             key={note.id}
             date={note.date}
             title={note.title}
